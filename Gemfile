@@ -8,6 +8,7 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'sinatra-partial'
 gem 'data_mapper'
+gem 'dm-timestamps'
 gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'racksh'
@@ -19,7 +20,7 @@ group :development do
   gem 'dm-sqlite-adapter', group: :development
   gem 'rerun'
   gem 'thin'
-  
+
 end
 
 # Used during production (on Heroku), when your application is 'live'
