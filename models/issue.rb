@@ -5,8 +5,9 @@ class Issue
 	property :title, String, :required => true, :length => 140
 	property :description, Text, :required => true
 	property :created_at, DateTime
-	property :notice, Boolean, :required => true, :default => true
-	property :alternative_email, String, :required => true, :length => 256
+	property :notice, Boolean, :default => true
+	property :alternative_email, String, :length => 256
 
-	belongs_to :user
+	belongs_to :student
+	has 1, :admin
 end

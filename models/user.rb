@@ -3,11 +3,28 @@ class User
 
 	property :id, Serial
 	property :name, String, :required => true
-	property :email, String, :required => true, :length => 256
+	property :email, String, :required => true, :unique => true, :length => 256
 	property :password, BCryptHash, :required => true
-	property :rights, String, :default => "Elev"
 	property :blocked, Boolean, :default => false
+	property :type, Discriminator
 
+	#has 1, :student
+	#has 1, :admin, required: false
 	has n, :issues
-	has n, :articles
+
+end
+
+class Admin < User
+	include DataMapper::Resource
+
+
+	belongs_to :user, key: true
+	#has n, :articles
+end
+
+class Student < User
+	include DataMapper::Resource
+
+	belongs_to :user, key: true
+	#has n, :issues
 end
