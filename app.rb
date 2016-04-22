@@ -5,5 +5,10 @@ class App < Sinatra::Base
   	"Hello, Sinatra!"
   end
 
+	get '/issues' do
+		@issues = Issue.all
+		slim :issues
+	end
+
 
 end

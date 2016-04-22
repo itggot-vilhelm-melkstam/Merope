@@ -7,7 +7,7 @@ class Issue
 	property :created_at, DateTime
 	property :notice, Boolean, :default => true
 	property :alternative_email, String, :length => 256
+	property :admin, Integer
 
-	belongs_to :student
-	has 1, :admin
+	belongs_to :user
 end

@@ -7,13 +7,14 @@ class Seeder
   end
 
 	def self.users
-		Student.create(name: "Vilhelm Melkstam",
+		User.create(name: "Vilhelm Melkstam",
 								email: "vilhelm.melkstam@gmail.com",
 								password: "Hej")
 
-		Admin.create(name: "Pelle K.Lund",
+		User.create(name: "Pelle K.Lund",
 								email: "tramstrams@gmail.com",
-								password: "majsmajs")
+								password: "majsmajs",
+								rights: :admin)
 
 	end
 
@@ -21,7 +22,7 @@ class Seeder
 		Issue.create(title: "Banankaka fast i tangentbordet",
 								 description: "Jag käka banankaka och så bara 'whoops!'",
 								 alternative_email: "majs@bajs.com",
-								 student_user_id: 1)
+								 user_id: 1)
 	end
 
 	def self.articles
