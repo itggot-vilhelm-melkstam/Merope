@@ -1,0 +1,9 @@
+body {
+  background-color: #FAFAFA;
+  height: 100%;
+}
+
+.mdl-layout__content {
+  top: -64px;
+  z-index: 4;
+}
