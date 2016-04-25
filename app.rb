@@ -10,5 +10,9 @@ class App < Sinatra::Base
 		slim :issues
 	end
 
+	post "/logout" do
+		redirect "/"
+	end
+
 
 end

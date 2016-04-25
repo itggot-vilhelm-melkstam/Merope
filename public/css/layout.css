@@ -10,6 +10,32 @@ body {
 	position: fixed;
 }
 
+.mdl-navigation__link i {
+	font-size: 24px;
+	margin-right: 16px;
+}
+
+.navigation-bottom {
+	position: absolute;
+	bottom: 0;
+	padding: 16px;
+}
+
+.navigation-bottom form {
+	margin-bottom: 8px;
+}
+
+.navigation-bottom input {
+	font-weight: bold;
+}
+
+.navigation-bottom span {
+	position: relative;;
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.54);
+	left: 16px;
+}
+
 .mdl-layout__content {
   top: -64px;
   z-index: 4;

@@ -20,12 +20,18 @@ html
 					.mdl-layout-spacer
 			
 			.mdl-layout__drawer
-				span.mdl-layout-title Title
 				nav.mdl-navigation
-					a.mdl-navigation__link href="" Hej
-					a.mdl-navigation__link href="" Majs
-					a.mdl-navigation__link href="" Svamp
-				
+					a.mdl-navigation__link href=""
+						i.material-icons report_problem
+						| Ärenden
+					a.mdl-navigation__link href=""
+						i.material-icons lightbulb_outline
+						| Kunskapsbas
+					
+					.navigation-bottom
+						form action="/logout" method="post"
+							input.mdl-button.mdl-js-button.mdl-js-ripple-effect type="submit" value="Logga ut"
+						span Copyright © Vilhelm Melkstam 2016
 				
 			main.mdl-layout__content
 				div.page-content
