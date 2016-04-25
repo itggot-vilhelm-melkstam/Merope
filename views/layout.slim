@@ -12,21 +12,21 @@ html
 		link rel="stylesheet" href="/css/layout.css"
 		
 	body
-		div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"
-			header class="mdl-layout__header"
-				div class="mdl-layout__header-row"
-					div class="mdl-layout-spacer"
-				div class="mdl-layout__header-row"
-					div class="mdl-layout-spacer"
+		.mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-drawer
+			header.mdl-layout__header
+				.mdl-layout__header-row
+					.mdl-layout-spacer
+				.mdl-layout__header-row
+					.mdl-layout-spacer
 			
-			div class="mdl-layout__drawer"
-				span class="mdl-layout-title" Title
-				nav class="mdl-navigation"
-					a class="mdl-navigation__link" href="" Hej
-					a class="mdl-navigation__link" href="" Majs
-					a class="mdl-navigation__link" href="" Svamp
+			.mdl-layout__drawer
+				span.mdl-layout-title Title
+				nav.mdl-navigation
+					a.mdl-navigation__link href="" Hej
+					a.mdl-navigation__link href="" Majs
+					a.mdl-navigation__link href="" Svamp
 				
 				
-			main class="mdl-layout__content"
-				div class="page-content"
+			main.mdl-layout__content
+				div.page-content
 					== yield

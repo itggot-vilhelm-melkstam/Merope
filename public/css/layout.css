@@ -1,6 +1,13 @@
 body {
   background-color: #FAFAFA;
-  height: 100%;
+}
+
+.mdl-layout__container {
+	height: auto;
+}
+
+.mdl-layout__drawer {
+	position: fixed;
 }
 
 .mdl-layout__content {
