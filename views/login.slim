@@ -35,7 +35,20 @@ html
 									input.mdl-textfield__input type="text" id="password"
 									label.mdl-textfield__label for="password" Lösenord
 					section.mdl-layout__tab-panel id="register-tab"
-						.page-content Majs!
+						.page-content
+							form action="/login" method="post"
+								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+									input.mdl-textfield__input type="text" id="email"
+									label.mdl-textfield__label for="email" Email
+								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+									input.mdl-textfield__input type="text" id="name"
+									label.mdl-textfield__label for="name" Namn
+								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+									input.mdl-textfield__input type="text" id="password"
+									label.mdl-textfield__label for="password" Lösenord
+								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+									input.mdl-textfield__input type="text" id="password-repeat"
+									label.mdl-textfield__label for="password-repeat" Upprepa Lösenord
 			
 			
 			/ form action="/login" method="post"
