@@ -2,7 +2,7 @@ class App < Sinatra::Base
   enable :sessions
 
   get '/' do
-  	"Hello, Sinatra! :"
+  	slim :login, layout: false
   end
 
 	get '/issues' do
