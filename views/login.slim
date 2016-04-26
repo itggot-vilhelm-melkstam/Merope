@@ -29,11 +29,13 @@ html
 						.page-content
 							form action="/login" method="post"
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="email"
-									label.mdl-textfield__label for="Email" Email
+									input.mdl-textfield__input type="email" id="email"
+									label.mdl-textfield__label for="email" Email
+									span.mdl-textfield__error Ej giltig email-adress
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="password"
+									input.mdl-textfield__input type="password" id="password"
 									label.mdl-textfield__label for="password" Lösenord
+								input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent type="submit" value="Logga In"
 					section.mdl-layout__tab-panel id="register-tab"
 						.page-content
 							form action="/login" method="post"

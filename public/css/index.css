@@ -11,10 +11,11 @@ body {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
+
 }
 
 .mdl-layout__container {
-	
+	position: relative;
 }
 
 .mdl-layout__header-row {

@@ -14,5 +14,13 @@ class App < Sinatra::Base
 		redirect "/"
 	end
 
+  post "/login" do
+
+  end
+
+  post "/register" do
+    
+  end
+
 
 end
