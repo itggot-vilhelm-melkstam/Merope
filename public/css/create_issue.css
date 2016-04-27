@@ -1,0 +1,7 @@
+.full .mdl-card__title {
+  height: 64px;
+}
+
+.full .mdl-card__title .mdl-textfield__input, .full .mdl-card__title .mdl-textfield__label {
+  font-size: 24px;
+}

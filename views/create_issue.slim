@@ -1,0 +1,14 @@
+link rel="stylesheet" href="/css/create_issue.css"
+
+.mdl-card.mdl-shadow--4dp.full
+  form action="/issue/create" method="post"
+    .mdl-card__title.mdl-card--border
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input type="text" name="title" id="title"
+        label.mdl-textfield__label for="title" Titel
+        
+    .mdl-card__media
+      .mdl-textfield.mdl-js-textfield
+        textarea.mdl-textfield__input type="text" name="description" rows="2" id="description"
+        label.mdl-textfield__label for="description" Beskrivning
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect type="submit" Skapa Ärende

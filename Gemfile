@@ -18,7 +18,7 @@ group :development do
 
   # Use SQLite
   gem 'dm-sqlite-adapter', group: :development
-  gem 'rerun'
+  gem 'rerun', github: 'alexch/rerun'
   gem 'thin'
 
 end

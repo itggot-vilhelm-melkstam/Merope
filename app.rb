@@ -20,6 +20,29 @@ class App < Sinatra::Base
 		end
 	end
 
+  get '/issue/create' do
+    if session[:user_id]
+			@user = User.get(session[:user_id])
+      slim :create_issue
+    else
+      redirect "/"
+    end
+  end
+
+  post '/issue/create' do
+    if session[:user_id]
+      user = User.get(session[:user_id])
+      issue = Issue.create(title: params["title"],
+                           description: params["description"],
+                           alternative_email: "majs@bajs.com",
+                           status: [:unassigned, :open, :closed].sample,
+                           user_id: user.id)
+      redirect "/issues"
+    else
+      redirect "/"
+    end
+  end
+
 	post "/logout" do
 		session[:user_id] = nil
 		redirect "/"
@@ -37,6 +60,7 @@ class App < Sinatra::Base
 		if params["password"] == params["password-repeat"]
 			user = User.create(name: params["name"],
 												 email: params["email"],
+                         status: [:unassigned, :open, :closed].sample,
 												 password: params["password"])
 		end
     if user

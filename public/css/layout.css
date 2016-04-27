@@ -20,6 +20,27 @@ body {
 	margin-right: 16px;
 }
 
+.full {
+  margin: 0 auto 16px auto;
+  width: 75%;
+
+}
+@media screen and (max-width: 1024px) and (min-width: 520px) {
+  .full {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 519px) {
+  .full {
+    width: 95%;
+  }
+}
+
+.full .mdl-card__media {
+  background-color: #fff;
+}
+
 .navigation-bottom {
 	position: absolute;
 	bottom: 0;
@@ -46,8 +67,18 @@ body {
   z-index: 4;
 }
 
-/*.mdl-button--fab {
+.mdl-button--fab {
+  z-index: 4;
+  margin: 0;
 	position: fixed;
 	bottom: 64px;
 	right: 64px;
-}*/
+}
+
+.mdl-layout__obfuscator {
+  position: fixed;
+}
+
+a {
+  color: rgba(0,0,0,0)
+}
