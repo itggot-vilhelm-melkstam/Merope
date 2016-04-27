@@ -2,6 +2,11 @@ body {
   background-color: #FAFAFA;
 }
 
+.mdl-layout {
+	height: auto;
+	min-height: 100%;
+}
+
 .mdl-layout__container {
 	height: auto;
 }
@@ -40,3 +45,9 @@ body {
   top: -64px;
   z-index: 4;
 }
+
+/*.mdl-button--fab {
+	position: fixed;
+	bottom: 64px;
+	right: 64px;
+}*/

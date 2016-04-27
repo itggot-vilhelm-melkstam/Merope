@@ -2,10 +2,6 @@ body {
 	height: 100%;
 }
 
-.mdl-layout {
-	height: auto;
-}
-
 .mdl-card {
 	margin: 0 auto;
 	position: relative;

@@ -21,6 +21,7 @@ html
 			
 			.mdl-layout__drawer
 				nav.mdl-navigation
+					span =@user.name
 					a.mdl-navigation__link href=""
 						i.material-icons report_problem
 						| Ärenden
@@ -36,3 +37,5 @@ html
 			main.mdl-layout__content
 				div.page-content
 					== yield
+					button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+						i.material-icons add

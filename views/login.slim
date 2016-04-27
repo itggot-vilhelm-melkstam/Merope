@@ -29,28 +29,30 @@ html
 						.page-content
 							form action="/login" method="post"
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="email" id="email"
+									input.mdl-textfield__input type="email" name="email" id="email"
 									label.mdl-textfield__label for="email" Email
 									span.mdl-textfield__error Ej giltig email-adress
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="password" id="password"
+									input.mdl-textfield__input type="password" name="password" id="password"
 									label.mdl-textfield__label for="password" Lösenord
-								input.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent type="submit" value="Logga In"
+								button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent type="submit" Logga in
 					section.mdl-layout__tab-panel id="register-tab"
 						.page-content
-							form action="/login" method="post"
+							form action="/register" method="post"
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="email"
+									input.mdl-textfield__input type="email" name="email" id="email"
 									label.mdl-textfield__label for="email" Email
+									span.mdl-textfield__error Ej giltig email-adress
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="name"
+									input.mdl-textfield__input type="text" name="name" id="name"
 									label.mdl-textfield__label for="name" Namn
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="password"
+									input.mdl-textfield__input type="password" name="password" id="password"
 									label.mdl-textfield__label for="password" Lösenord
 								.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-									input.mdl-textfield__input type="text" id="password-repeat"
+									input.mdl-textfield__input type="password" name="password-repeat" id="password-repeat"
 									label.mdl-textfield__label for="password-repeat" Upprepa Lösenord
+								button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent type="submit" Registrera
 			
 			
 			/ form action="/login" method="post"
