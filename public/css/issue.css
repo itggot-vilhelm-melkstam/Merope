@@ -1,0 +1,40 @@
+.full .mdl-card__title .mdl-card__title-text{
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.mdl-card__title-text.closed {
+	width: calc(100% - 104px)
+}
+
+.mdl-card__title-text.unassigned {
+	width: calc(100% - 156px)
+}
+
+.mdl-card__title-text.open {
+	width: calc(100% - 87px)
+}
+
+.full .mdl-card__title .status {
+	position: absolute;
+	right: 16px;
+	top: 19px;
+
+	font-size: 24px;
+
+	font-weight: bold;
+}
+
+span.closed {
+	color: #F44336;
+}
+
+span.unassigned {
+	color: #FF9800;
+}
+
+span.open {
+	color: #4CAF50;
+}

@@ -1,6 +1,8 @@
 class App < Sinatra::Base
   enable :sessions
 
+
+
   get '/' do
 		if session[:user_id]
 			@user = User.get(session[:user_id])
@@ -20,14 +22,25 @@ class App < Sinatra::Base
 		end
 	end
 
-  get '/issue/create' do
-    if session[:user_id]
+	get '/issue/create' do
+		if session[:user_id]
 			@user = User.get(session[:user_id])
-      slim :create_issue
-    else
-      redirect "/"
-    end
-  end
+			slim :create_issue
+		else
+			redirect "/"
+		end
+	end
+
+	get "/issue/:id" do |id|
+		if session[:user_id] == Issue.first(id: id).user.id
+			@user = User.get(session[:user_id])
+			@issue = Issue.first(id: id)
+			@status = {open: "ÖPPEN", closed: "STÄNGD", unassigned: "OTILLDELAD"}[@issue.status]
+			slim :issue
+		else
+			redirect "/"
+		end
+	end
 
   post '/issue/create' do
     if session[:user_id]
@@ -60,13 +73,14 @@ class App < Sinatra::Base
 		if params["password"] == params["password-repeat"]
 			user = User.create(name: params["name"],
 												 email: params["email"],
-                         status: [:unassigned, :open, :closed].sample,
 												 password: params["password"])
 		end
     if user
       session[:user_id] = user.id
-    end
-    redirect "/issues"
+			redirect "/issues"
+		else
+			redirect '/'
+		end
   end
 
 

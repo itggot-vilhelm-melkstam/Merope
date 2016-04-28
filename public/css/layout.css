@@ -15,7 +15,11 @@ body {
 	position: fixed;
 }
 
-.mdl-navigation__link i {
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+	padding-left: 32px;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link i {
 	font-size: 24px;
 	margin-right: 16px;
 }
@@ -35,6 +39,10 @@ body {
   .full {
     width: 95%;
   }
+}
+
+.full .mdl-card__title {
+  height: 64px;
 }
 
 .full .mdl-card__media {

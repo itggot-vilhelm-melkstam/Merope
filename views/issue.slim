@@ -1,0 +1,9 @@
+link rel="stylesheet" href="/css/issue.css"
+
+.mdl-card.mdl-shadow--4dp.full
+	.mdl-card__title.mdl-card--border
+		.mdl-card__title-text class="#{@issue.status}" =@issue.title
+		span.status class="#{@issue.status}" =@status
+		
+	.mdl-card__media
+		=@issue.description
