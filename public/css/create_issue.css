@@ -1,7 +1,91 @@
+.mdl-layout__container {
+  height: 100%;
+}
+
+.mdl-card {
+  overflow: visible;
+}
+
 .full .mdl-card__title {
   height: 64px;
 }
 
 .full .mdl-card__title .mdl-textfield__input, .full .mdl-card__title .mdl-textfield__label {
   font-size: 24px;
+}
+
+.full .mdl-card__title .mdl-textfield {
+  width: calc(100% - 135px);
+}
+
+.full .mdl-card__title button, .full .mdl-card__title ul {
+  right: -16px;
+}
+
+.full .mdl-card__media {
+  padding: 16px;
+}
+
+
+.tried {
+  height: 32px;
+  overflow: hidden;
+}
+
+.try-article {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 24px;
+  height: 24px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  background-color: #e0e0e0;
+}
+
+.tried > span {
+  display: inline-block;
+  line-height: 32px;
+}
+
+.mdl-card__media .description {
+  width: 100%;
+}
+
+.notice {
+  display: inline-block;
+  /*height: 32px;*/
+  overflow: hidden;
+  width: 100%;
+}
+
+.switch {
+  display: inline-block;
+  width: 36px;
+  height: 24px;
+
+}
+
+.notice .mdl-textfield  {
+  padding-top: 0px;
+  width: calc(100% - 172px);
+}
+
+.notice .mdl-textfield .mdl-textfield__label {
+  top: 4px;
+}
+
+.notice #aletrnative_email-info {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.notice .alternative_email-info {
+  height: 32px;
+  float: right;
+  display: inline-block;
+  padding-top: 4px;
+}
+
+.mdl-card__media > .mdl-button {
+  float: right;
+  margin-bottom: 16px;
 }

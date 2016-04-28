@@ -6,9 +6,39 @@ link rel="stylesheet" href="/css/create_issue.css"
       .mdl-textfield.mdl-js-textfield
         input.mdl-textfield__input type="text" name="title" id="title"
         label.mdl-textfield__label for="title" Titel
+      button#tags_menu.mdl-button.mdl-js-button type="button"
+        span Taggar 
+        i.material-icons expand_more
+      ul.mdl-menu.mdl-js-menu for="tags_menu"
+        -for tag in @tags
+          li.mdl-menu__item =tag.name
+          li.mdl-menu__item =tag.name
+        
         
     .mdl-card__media
-      .mdl-textfield.mdl-js-textfield
-        textarea.mdl-textfield__input type="text" name="description" rows="2" id="description"
+      .tried
+        span Har du testat:
+        -for article in @articles
+          .try-article =article
+      
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.description
+        textarea.mdl-textfield__input type="text" rows= "8" id="description"
         label.mdl-textfield__label for="description" Beskrivning
+      
+      .notice
+        span Email-notiser
+        .switch
+          label.mdl-switch.mdl-js-switch for="notice"
+            input.mdl-switch__input type="checkbox" id="notice" checked="true"
+            span.mdl-switch__label
+            
+        .mdl-textfield.mdl-js-textfield
+          input.mdl-textfield__input type="text" name="alternative_email" id="alternative_email"
+          label.mdl-textfield__label for="alternative_email" Alternativ Email
+        
+        .alternative_email-info
+          .material-icons#aletrnative_email-info info
+          .mdl-tooltip.mdl-tooltip--left for="aletrnative_email-info" Alla email skickas även till den alternativa emailen, så du lättare kommer åt dem!
+          
+
       button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect type="submit" Skapa Ärende

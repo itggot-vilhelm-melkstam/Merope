@@ -3,7 +3,7 @@ class Seeder
   def self.seed!
 		users
 		issues
-		articles
+    tags
   end
 
 	def self.users
@@ -42,5 +42,14 @@ class Seeder
 									 description: "Ta en penna och ät majs så blir det superduper",
 									 user_id: 1)
 	end
+
+  def self.tags
+    Tag.create(name: "Dator")
+    Tag.create(name: "Windows")
+    Tag.create(name: "Mac OSX")
+    Tag.create(name: "Inloggning")
+    Tag.create(name: "Övrig hårdvara")
+    Tag.create(name: "Övrig mjukvara")
+  end
 
 end

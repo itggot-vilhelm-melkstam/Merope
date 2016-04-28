@@ -79,6 +79,7 @@ GEM
     listen (3.1.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
+    lorem_ipsum_amet (0.6.2)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
@@ -144,6 +145,7 @@ DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
   dm-timestamps
+  lorem_ipsum_amet
   racksh
   rerun!
   rspec

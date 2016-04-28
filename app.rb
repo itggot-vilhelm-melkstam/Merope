@@ -23,6 +23,9 @@ class App < Sinatra::Base
 	end
 
 	get '/issue/create' do
+    @articles = []
+    24.times { @articles << LoremIpsum.random.split(/ /)[0..rand(2..5)].join(" ")}
+    @tags = Tag.all
 		if session[:user_id]
 			@user = User.get(session[:user_id])
 			slim :create_issue

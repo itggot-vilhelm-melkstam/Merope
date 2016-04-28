@@ -12,6 +12,7 @@ gem 'dm-timestamps'
 gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'racksh'
+gem 'lorem_ipsum_amet'
 
 # Used during local development (on your own machine)
 group :development do

@@ -11,4 +11,6 @@ class Issue
 	property :admin, Integer
 
 	belongs_to :user
+	has n, :issuetaggings
+	has n, :tags, through: :issuetaggings
 end
