@@ -18,7 +18,7 @@
   width: calc(100% - 135px);
 }
 
-.full .mdl-card__title button, .full .mdl-card__title ul {
+.full .mdl-card__title button {
   right: -16px;
 }
 
@@ -26,6 +26,27 @@
   padding: 16px;
 }
 
+.full .mdl-menu__container {
+	max-height: 350px;
+  overflow-x: hidden;
+
+	box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+
+	-webkit-transition: width 0.16s ease-in-out; /* Safari */
+	transition: width 0.16s ease-in-out;
+}
+
+.full .mdl-menu__container:not(.is-visible) {
+	width: 0 !important;
+}
+
+.full .mdl-menu__container.is-visible {
+	width: auto;
+}
+
+.mdl-checkbox__label {
+	position: absolute;
+}
 
 .tried {
   height: 32px;
@@ -58,6 +79,13 @@
   width: 100%;
 }
 
+.notice .switch-container {
+	display: inline-block;
+	margin-right: 8px;
+	position: absolute;
+	padding: 4px 0;
+}
+
 .switch {
   display: inline-block;
   width: 36px;
@@ -66,8 +94,11 @@
 }
 
 .notice .mdl-textfield  {
+	display: inline-block;
+	position: absolute;
+	left: 160px;
   padding-top: 0px;
-  width: calc(100% - 172px);
+  width: calc(100% - 208px);
 }
 
 .notice .mdl-textfield .mdl-textfield__label {
