@@ -8,6 +8,7 @@
 .full > .mdl-card__title > .mdl-textfield {
   padding: 0;
   position: absolute;
+  top: 16px;
   right: 16px;
 }
 

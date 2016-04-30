@@ -15,37 +15,26 @@
 }
 
 .full .mdl-card__title .mdl-textfield {
-  width: calc(100% - 135px);
+  width: calc(100% - 108px);
 }
 
+
 .full .mdl-card__title button {
+  right: 16px;
+  position: absolute;
+}
+
+#show-dialog {
   right: -16px;
+  position: relative;
 }
 
 .full .mdl-card__media {
   padding: 16px;
 }
 
-.full .mdl-menu__container {
-	max-height: 350px;
-  overflow-x: hidden;
-
-	box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
-
-	-webkit-transition: width 0.16s ease-in-out; /* Safari */
-	transition: width 0.16s ease-in-out;
-}
-
-.full .mdl-menu__container:not(.is-visible) {
-	width: 0 !important;
-}
-
-.full .mdl-menu__container.is-visible {
-	width: auto;
-}
-
-.mdl-checkbox__label {
-	position: absolute;
+#tags-dialog {
+  z-index: 8;
 }
 
 .tried {
