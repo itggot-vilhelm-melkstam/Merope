@@ -7,3 +7,8 @@ link rel="stylesheet" href="/css/issue.css"
 		
 	.mdl-card__media
 		=@issue.description
+		br
+		=@issue.notice
+		br
+		-for tag in @issue.tags
+			=tag.name

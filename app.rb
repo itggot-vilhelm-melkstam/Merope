@@ -50,9 +50,16 @@ class App < Sinatra::Base
       user = User.get(session[:user_id])
       issue = Issue.create(title: params["title"],
                            description: params["description"],
-                           alternative_email: "majs@bajs.com",
+                           notice: params["notice"] == 't' ? true : false,
+                           alternative_email: params["alternative_email"],
                            status: [:unassigned, :open, :closed].sample,
                            user_id: user.id)
+
+
+      params["tag"].each do |tag|
+        Issuetagging.create(issue_id: issue.id, tag_id: tag.to_i)
+      end
+
       redirect "/issues"
     else
       redirect "/"

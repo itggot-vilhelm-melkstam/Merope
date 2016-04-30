@@ -28,7 +28,7 @@ link rel="stylesheet" href="/css/issues.css"
               span.mdl-list__item-sub-title.issue-description =issue.description
               
             span.mdl-list__item-secondary-info
-              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b")
+              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 
         - unless issue == @issues.select{|i| i.status == :open}.last
           .list-divider.indented
@@ -51,7 +51,7 @@ link rel="stylesheet" href="/css/issues.css"
               span.mdl-list__item-sub-title.issue-description =issue.description
               
             span.mdl-list__item-secondary-info
-              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b")
+              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
             
         - unless issue == @issues.select{|i| i.status == :unassigned}.last
           .list-divider.indented
@@ -74,7 +74,7 @@ link rel="stylesheet" href="/css/issues.css"
               span class="mdl-list__item-sub-title issue-description" =issue.description
               
             span class="mdl-list__item-secondary-info"
-              span class="issue-date" =issue.created_at.strftime("%e" + "\s" + "%b")
+              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
             
         - unless issue == @issues.select{|i| i.status == :closed}.last
           .list-divider.indented

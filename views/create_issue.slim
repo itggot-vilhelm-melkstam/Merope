@@ -7,62 +7,65 @@ link rel="stylesheet" href="/css/create_issue.css"
         input.mdl-textfield__input type="text" name="title" id="title"
         label.mdl-textfield__label for="title" Titel
       
-      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#show-dialog type="button" Taggar
-      dialog.mdl-dialog#tags-dialog
-        button.mdl-button.mdl-js-button.mdl-button--icon.mdl-button--colored#close-dialog type="button"
-          i.material-icons clear
-        .mdl-dialog__title
-            span Välj taggar
-        .mdl-dialog__content
-          -for tag in @tags
-            .tag-container
-              label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect for="tag-checkbox-#{tag.id}"
-                input.mdl-checkbox__input id="tag-checkbox-#{tag.id}" type="checkbox"
-                span.mdl-checkbox__label =tag.name
-          
-          / button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect#close-tags type="button" Stäng
-                
-        
         
     .mdl-card__media
       .tried
         span Har du testat:
         -for article in @articles
-          .try-article =article
+          .chip =article
       
       .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.description
         textarea.mdl-textfield__input type="text" rows= "8" name="description" id="description"
         label.mdl-textfield__label for="description" Beskrivning
       
+      .attach
+        label.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--icon.mdl-button--accent#attachment-button type="button" for="attach-file"
+          i.material-icons attach_file
+        input#attach-file type="file" multiple="true"
+        span.mdl-tooltip for="attachment-button" Bifoga filer
+        #attachments
+          span#no-attachments Inga bifogade filer
+          
+        
       .notice
         .switch-container
           span Email-notiser
           .switch
             label.mdl-switch.mdl-js-switch for="notice"
-              input.mdl-switch__input type="checkbox" id="notice" checked="true"
+              input.mdl-switch__input type="checkbox" id="notice" name="notice" checked="true" value="t"
               span.mdl-switch__label
             
         .mdl-textfield.mdl-js-textfield
-          input.mdl-textfield__input type="text" name="alternative_email" id="alternative_email"
+          input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email"
           label.mdl-textfield__label for="alternative_email" Alternativ Email
         
         .alternative_email-info
-          .material-icons#aletrnative_email-info info
+          .material-icons#aletrnative_email-info info_outline
           .mdl-tooltip.mdl-tooltip--left for="aletrnative_email-info" Alla email skickas även till den alternativa emailen, så du lättare kommer åt dem!
-          
+        
+      .tags
+        -for tag in @tags
+          .tag
+            label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect for="tag-checkbox-#{tag.id}"
+              input.mdl-checkbox__input id="tag-checkbox-#{tag.id}" name="tag[]" value="#{tag.id}" type="checkbox"
+              span.mdl-checkbox__label =tag.name
 
       button.mdl-button.mdl-js-button.mdl-button--colored.mdl-button--raised type="submit" Skapa Ärende
       
 javascript:
-  var dialog = document.querySelector('dialog');
-  var showDialogButton = document.querySelector('#show-dialog');
-  var closeDialogButton = document.querySelector('#close-dialog');
-  if (! dialog.showModal) {
-    dialogPolyfill.registerDialog(dialog);
-  }
-  showDialogButton.addEventListener('click', function() {
-    dialog.showModal();
+  var attachments = document.getElementById("attach-file");
+  attachments.addEventListener("change", function(){
+    //document.getElementById("no-attachments").style.display = 'block';
+    document.getElementById("attachments").innerHTML = "<span id=\"no-attachments\">" + attachments.files.length + " bifogade filer</span>";
+    
+    for (var i = 0; i < attachments.files.length; i++){
+      //document.getElementById("no-attachments").style.display = 'none';
+      console.log(attachments.files[i].name);
+      var chip = document.createElement("DIV");
+      chip.className += "chip";
+      var filename = document.createTextNode(attachments.files[i].name);
+      chip.appendChild(filename);
+      document.getElementById("attachments").appendChild(chip);
+    }
   });
-  closeDialogButton.addEventListener('click', function() {
-    dialog.close();
-  });
+  

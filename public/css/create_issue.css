@@ -15,7 +15,7 @@
 }
 
 .full .mdl-card__title .mdl-textfield {
-  width: calc(100% - 108px);
+  width: 100%;
 }
 
 
@@ -42,7 +42,7 @@
   overflow: hidden;
 }
 
-.try-article {
+.chip {
   display: inline-block;
   font-size: 12px;
   line-height: 24px;
@@ -61,9 +61,37 @@
   width: 100%;
 }
 
-.notice {
+.attach {
+  margin: 8px 0;
+  height: 36px;
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.attach #attachments {
+  position: absolute;
+  margin-left: 4px;
+  height: 32px;
+  width: calc(100% - 36px);
   display: inline-block;
-  /*height: 32px;*/
+  overflow: hidden;
+}
+
+.attach #attachments > *{
+  margin-left: 4px;
+}
+
+.attach #no-attachments {
+  line-height: 32px;
+  color: rgba(0, 0, 0, .54);
+}
+
+.notice {
+  margin: 8px 0;
+  display: inline-block;
   overflow: hidden;
   width: 100%;
 }
@@ -108,4 +136,17 @@
 .mdl-card__media > .mdl-button {
   float: right;
   margin-bottom: 16px;
+}
+
+.tags {
+  display: inline-block;
+
+  margin: 8px 0;
+}
+
+.tag {
+  display: inline-block;
+  width: 192px;
+  height: 32px;
+  float: left;
 }
