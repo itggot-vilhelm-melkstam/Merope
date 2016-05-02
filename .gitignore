@@ -3,3 +3,5 @@
 
 # ignore all database files (create & populate db from seed instead)
 db/*.sqlite
+
+public/files/*

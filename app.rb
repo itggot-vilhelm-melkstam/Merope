@@ -55,10 +55,21 @@ class App < Sinatra::Base
                            status: [:unassigned, :open, :closed].sample,
                            user_id: user.id)
 
+			if issue
+				params["files"].each do |file|
+					uuid = SecureRandom.hex
+					#File.open("public/files/#{uuid}.#{file[:filename].scan(/\.(.+)$/)[0]}") do |f|
+					File.open("./public/files/#{uuid}.#{file[:filename].scan(/\.(.+)$/)[0][0]}", "w+") do |f|
+						f.write file[:tempfile].read
+					end
+					Attachment.create(name: file[:filename],
+														path: "#{uuid}.#{file[:filename].scan(/\.(.+)$/)[0][0]}")
+				end
 
-      params["tag"].each do |tag|
-        Issuetagging.create(issue_id: issue.id, tag_id: tag.to_i)
-      end
+	      params["tag"].each do |tag|
+	        Issuetagging.create(issue_id: issue.id, tag_id: tag.to_i)
+	      end
+			end
 
       redirect "/issues"
     else
