@@ -12,7 +12,14 @@ html
 		
 		link rel="stylesheet" href="/css/layout.css"
 		
+		meta
+		
 	body
+		details#notice =flash[:notice].join("¤") rescue""
+		.mdl-snackbar.mdl-js-snackbar#snackbar aria-live="assertive" aria-atomic="true" aria-relevant="text"
+			.mdl-snackbar__text
+			button.mdl-snackbar__action type="button"
+				
 		.mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-drawer
 			header.mdl-layout__header
 				.mdl-layout__header-row
@@ -41,3 +48,7 @@ html
 			a href="/issue/create"
 				button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
 					i.material-icons add
+		
+javascript:
+	var flashes = document.getElementById("notice").innerHTML.split("¤");
+	console.log(flashes);

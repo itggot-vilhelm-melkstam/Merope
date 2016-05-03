@@ -1,6 +1,8 @@
+require 'rack-flash'
+
 class App < Sinatra::Base
   enable :sessions
-
+	use Rack::Flash
 
 
   get '/' do
@@ -70,6 +72,9 @@ class App < Sinatra::Base
 	        Issuetagging.create(issue_id: issue.id, tag_id: tag.to_i)
 	      end
 			end
+			flash[:notice] = []
+			flash[:notice] << "hej"
+			flash[:notice] << "majs"
 
       redirect "/issues"
     else
@@ -87,6 +92,7 @@ class App < Sinatra::Base
     if user && user.password == params["password"]
       session[:user_id] = user.id
     end
+
     redirect "/issues"
   end
 

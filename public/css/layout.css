@@ -2,6 +2,10 @@ body {
   background-color: #FAFAFA;
 }
 
+details {
+	display: none;	
+}
+
 .mdl-layout {
 	position: absolute;
 	height: auto;
