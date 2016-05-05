@@ -1,9 +1,12 @@
 body {
   background-color: #FAFAFA;
 }
+.mdl-snackbar {
+  display: none;
+}
 
 details {
-	display: none;	
+	display: none;
 }
 
 .mdl-layout {
