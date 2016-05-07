@@ -55,11 +55,9 @@ link rel="stylesheet" href="/css/create_issue.css"
 javascript:
   var attachments = document.getElementById("attach-file");
   attachments.addEventListener("change", function(){
-    //document.getElementById("no-attachments").style.display = 'block';
     document.getElementById("attachments").innerHTML = "<span id=\"no-attachments\">" + attachments.files.length + " bifogade filer</span>";
     
     for (var i = 0; i < attachments.files.length; i++){
-      //document.getElementById("no-attachments").style.display = 'none';
       console.log(attachments.files[i].name);
       var chip = document.createElement("DIV");
       chip.className += "chip";

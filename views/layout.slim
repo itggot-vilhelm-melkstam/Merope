@@ -6,13 +6,10 @@ html
 		meta name="viewport" content="width=device-width, initial-scale=1.0"
 		
 		link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
-		link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-red.min.css"
-		script src="https://code.getmdl.io/1.1.3/material.min.js"
+		link rel="stylesheet" href="/css/material.min.css"
+		script defer="true" src="/js/material.min.js"
 		
 		link rel="stylesheet" href="/css/layout.css"
-		script defer="true" src="/js/snackbar.js"
-		
-		meta
 		
 	body
 		details#details =flash[:notice].join('¤') rescue ''
@@ -48,3 +45,5 @@ html
 			a href="/issue/create"
 				button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
 					i.material-icons add
+					
+javascript:
