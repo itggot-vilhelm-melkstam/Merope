@@ -48,7 +48,12 @@ class App < Sinatra::Base
 	end
 
   post '/issue/create' do
+		flash[:notice] = []
     if session[:user_id]
+			if params["tag"] == nil
+				flash[:notice] << "Du har inte valt några taggar"
+				redirect back
+			end
       user = User.get(session[:user_id])
       issue = Issue.create(title: params["title"],
                            description: params["description"],
@@ -74,9 +79,8 @@ class App < Sinatra::Base
 	        Issuetagging.create(issue_id: issue.id, tag_id: tag.to_i)
 	      end
 			end
-			flash[:notice] = []
-			flash[:notice] << "hej"
-			flash[:notice] << "majs"
+
+			flash[:notice] << "Ärende skapat" if issue
 
       redirect "/issues"
     else

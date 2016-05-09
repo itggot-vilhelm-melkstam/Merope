@@ -31,6 +31,10 @@
   padding: 0;
 }
 
+.mdl-list__item {
+	cursor: pointer;
+}
+
 .full > .mdl-card__media .mdl-list__item-primary-content {
  width: calc(100% - 100px);
 }

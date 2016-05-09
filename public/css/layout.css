@@ -2,11 +2,7 @@ body {
   background-color: #FAFAFA;
 }
 .mdl-snackbar {
-  display: none;
-}
-
-details {
-	display: none;
+	z-index: 5;
 }
 
 .mdl-layout {
