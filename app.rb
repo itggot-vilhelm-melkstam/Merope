@@ -4,6 +4,13 @@ class App < Sinatra::Base
   enable :sessions
 	use Rack::Flash
 
+	before do
+		if @no_cache
+			cache_control :public, max_age: 0
+			@no_cahce = false
+		end
+	end
+
 
   get '/' do
 		if session[:user_id]
@@ -55,7 +62,7 @@ class App < Sinatra::Base
 				redirect back
 			end
       user = User.get(session[:user_id])
-      issue = Issue.create(title: params["title"],
+      issue = Issue.create(title: params["title"].chomp,
                            description: params["description"],
                            notice: params["notice"] == 't' ? true : false,
                            alternative_email: params["alternative_email"],
@@ -82,6 +89,7 @@ class App < Sinatra::Base
 
 			flash[:notice] << "Ärende skapat" if issue
 
+			@no_cache = true
       redirect "/issues"
     else
       redirect "/"
