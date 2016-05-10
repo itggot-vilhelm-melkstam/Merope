@@ -38,3 +38,50 @@ span.unassigned {
 span.open {
 	color: #4CAF50;
 }
+
+.mdl-card__media {
+	padding: 16px;
+}
+
+.notice {
+  margin: 8px 0;
+  display: inline-block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.notice .switch-container {
+	display: inline-block;
+	margin-right: 8px;
+	bottom: 8px;
+	position: absolute;
+	padding: 4px 0;
+}
+
+.switch {
+  display: inline-block;
+  width: 36px;
+  height: 24px;
+
+}
+
+.notice .mdl-textfield  {
+	display: inline-block;
+	position: absolute;
+	left: 160px;
+  width: calc(100% - 208px);
+}
+
+.notice #aletrnative_email-info {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.notice .alternative_email-info {
+  height: 32px;
+  position: absolute;
+  bottom: 8px;
+  float: right;
+  right: 16px;
+  display: inline-block;
+  padding-top: 4px;
+}

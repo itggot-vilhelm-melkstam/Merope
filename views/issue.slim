@@ -6,9 +6,28 @@ link rel="stylesheet" href="/css/issue.css"
 		span.status class="#{@issue.status}" =@status
 		
 	.mdl-card__media
+		.top_row
+			span Taggar:
+			-for tag in @issue.tags
+				.chip =tag.name
+			span.issue_created =@issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 		=@issue.description
 		br
-		=@issue.notice
+		.notice
+			.switch-container
+				span Email-notiser
+				.switch
+					label.mdl-switch.mdl-js-switch for="notice"
+						- checked = @issue.notice ? {checked: ""}: {}
+						input.mdl-switch__input type="checkbox" id="notice" name="notice" *checked value="t" 
+						span.mdl-switch__label
+						
+			.alternative_email-info
+				.material-icons#aletrnative_email-info info_outline
+				.mdl-tooltip.mdl-tooltip--left for="aletrnative_email-info" Alla email skickas även till den alternativa emailen, så du lättare kommer åt dem!
+					
+			.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+				input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email"
+				label.mdl-textfield__label for="alternative_email" Alternativ Email
 		br
-		-for tag in @issue.tags
-			=tag.name
+		

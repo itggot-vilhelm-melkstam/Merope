@@ -42,16 +42,6 @@
   overflow: hidden;
 }
 
-.chip {
-  display: inline-block;
-  font-size: 12px;
-  line-height: 24px;
-  height: 24px;
-  padding: 4px 12px;
-  border-radius: 16px;
-  background-color: #e0e0e0;
-}
-
 .tried > span {
   display: inline-block;
   line-height: 32px;
@@ -90,17 +80,18 @@ input[type="file"] {
 }
 
 .notice {
-  margin: 8px 0;
   display: inline-block;
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .notice .switch-container {
-	display: inline-block;
-	margin-right: 8px;
-	position: absolute;
-	padding: 4px 0;
+  display: inline-block;
+  margin-right: 8px;
+  bottom: 16px;
+  position: absolute;
+  padding: 4px 0;
 }
 
 .switch {
@@ -112,14 +103,8 @@ input[type="file"] {
 
 .notice .mdl-textfield  {
 	display: inline-block;
-	position: absolute;
 	left: 160px;
-  padding-top: 0px;
   width: calc(100% - 208px);
-}
-
-.notice .mdl-textfield .mdl-textfield__label {
-  top: 4px;
 }
 
 .notice #aletrnative_email-info {
@@ -128,7 +113,10 @@ input[type="file"] {
 
 .notice .alternative_email-info {
   height: 32px;
+  position: absolute;
+  bottom: 16px;
   float: right;
+  right: 0;
   display: inline-block;
   padding-top: 4px;
 }
