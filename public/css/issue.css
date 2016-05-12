@@ -43,6 +43,31 @@ span.open {
 	padding: 16px;
 }
 
+.top_row {
+	height: 32px;
+	margin-bottom: 16px;
+	overflow: hidden;
+}
+
+.top_row > * {
+	display: inline-block;
+}
+
+.top_row > .tags_info {
+	position: absolute;
+  line-height: 32px;
+}
+
+.top_row > .chips {
+	margin-left: 64px;
+	width: calc(100% - 192px);
+}
+
+.top_row > .issue_created {
+	line-height: 32px;
+	float: right;
+}
+
 .notice {
   margin: 8px 0;
   display: inline-block;

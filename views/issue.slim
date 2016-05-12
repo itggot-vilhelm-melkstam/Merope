@@ -7,9 +7,10 @@ link rel="stylesheet" href="/css/issue.css"
 		
 	.mdl-card__media
 		.top_row
-			span Taggar:
-			-for tag in @issue.tags
-				.chip =tag.name
+			span.tags_info Taggar:
+			.chips
+				-for tag in @issue.tags
+					.chip =tag.name
 			span.issue_created =@issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 		=@issue.description
 		br
