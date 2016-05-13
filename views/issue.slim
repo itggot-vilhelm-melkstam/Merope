@@ -12,7 +12,7 @@ link rel="stylesheet" href="/css/issue.css"
 				-for tag in @issue.tags
 					.chip =tag.name
 			span.issue_created =@issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
-		=@issue.description
+		span =@issue.description
 		br
 		.notice
 			.switch-container
@@ -30,5 +30,8 @@ link rel="stylesheet" href="/css/issue.css"
 			.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
 				input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email"
 				label.mdl-textfield__label for="alternative_email" Alternativ Email
-		br
+				
+		button.mdl-button.mdl-js-buttonmdl-js-ripple-effect
+			b Spara
+	
 		

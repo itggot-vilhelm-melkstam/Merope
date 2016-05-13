@@ -69,18 +69,18 @@ span.open {
 }
 
 .notice {
+	position: relative;
+  height: 48px;
   margin: 8px 0;
   display: inline-block;
-  overflow: hidden;
   width: 100%;
 }
 
 .notice .switch-container {
 	display: inline-block;
-	margin-right: 8px;
-	bottom: 8px;
-	position: absolute;
-	padding: 4px 0;
+  margin-right: 8px;
+  bottom: 8px;
+  position: absolute;
 }
 
 .switch {
@@ -92,9 +92,10 @@ span.open {
 
 .notice .mdl-textfield  {
 	display: inline-block;
-	position: absolute;
-	left: 160px;
-  width: calc(100% - 208px);
+  position: relative;
+  top: -8px;
+  left: 148px;
+  width: calc(100% - 184px);
 }
 
 .notice #aletrnative_email-info {
@@ -102,11 +103,10 @@ span.open {
 }
 
 .notice .alternative_email-info {
-  height: 32px;
-  position: absolute;
-  bottom: 8px;
-  float: right;
-  right: 16px;
-  display: inline-block;
-  padding-top: 4px;
+	height: 32px;
+	bottom: 8px;
+	margin-top: 12px;
+	float: right;
+	right: 0px;
+	display: inline-block;
 }
