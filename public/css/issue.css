@@ -43,6 +43,10 @@ span.open {
 	padding: 16px;
 }
 
+.mdl-card__media.mdl-card--border {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
 .top_row {
 	height: 32px;
 	margin-bottom: 16px;
@@ -109,4 +113,12 @@ span.open {
 	float: right;
 	right: 0px;
 	display: inline-block;
+}
+
+#save-button {
+	float: right;
+}
+
+.mdl-card__actions {
+	padding: 16px;
 }

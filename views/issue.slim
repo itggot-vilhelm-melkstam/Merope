@@ -5,7 +5,7 @@ link rel="stylesheet" href="/css/issue.css"
 		.mdl-card__title-text class="#{@issue.status}" =@issue.title
 		span.status class="#{@issue.status}" =@status
 		
-	.mdl-card__media
+	.mdl-card__media.mdl-card--border
 		.top_row
 			span.tags_info Taggar:
 			.chips
@@ -31,7 +31,8 @@ link rel="stylesheet" href="/css/issue.css"
 				input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email"
 				label.mdl-textfield__label for="alternative_email" Alternativ Email
 				
-		button.mdl-button.mdl-js-buttonmdl-js-ripple-effect
+		button.mdl-button.mdl-js-buttonmdl-js-ripple-effect#save-button
 			b Spara
 	
+	.mdl-card__actions
 		
