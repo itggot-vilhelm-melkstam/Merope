@@ -122,3 +122,23 @@ span.open {
 .mdl-card__actions {
 	padding: 16px;
 }
+
+#create-comment {
+	height: 64px;
+	overflow: hidden;
+}
+
+#create-comment .avatar {
+	font-size: 32px;
+	margin: 16px;
+}
+
+#create-comment .mdl-textfield {
+	top: -8px;
+	width: calc(100% - 140px);
+}
+
+#create-comment button {
+	float: right;
+	margin: 16px;
+}

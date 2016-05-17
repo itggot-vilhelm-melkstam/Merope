@@ -24,15 +24,29 @@ link rel="stylesheet" href="/css/issue.css"
 						span.mdl-switch__label
 						
 			.alternative_email-info
-				.material-icons#aletrnative_email-info info_outline
-				.mdl-tooltip.mdl-tooltip--left for="aletrnative_email-info" Alla email skickas även till den alternativa emailen, så du lättare kommer åt dem!
+				.material-icons#alternative_email-info info_outline
+				.mdl-tooltip.mdl-tooltip--left for="alternative_email-info" Alla email skickas även till den alternativa emailen, så du lättare kommer åt dem!
 					
 			.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-				input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email"
+				input.mdl-textfield__input type="email" name="alternative_email" id="alternative_email" value="#{@issue.alternative_email}"
 				label.mdl-textfield__label for="alternative_email" Alternativ Email
 				
-		button.mdl-button.mdl-js-buttonmdl-js-ripple-effect#save-button
+		button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised#save-button
 			b Spara
 	
-	.mdl-card__actions
+	.mdl-card__actions.comments-section
+		-for comment in @comments
+			.comment
+				=comment.content
+		
+		#create-comment
+			form action="/comment/create" method="post"
+				input type="hidden" value="#{@issue.id}" name="issue"
+				i.material-icons.avatar account_circle
+				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+					input.mdl-textfield__input#comment-textfield type="text" name="content"
+					label.mdl-textfield__label for="comment-textfield" Kommentera…
+				button.mdl-button.mdl-js-button.mdl-button--icon type="submit"
+					i.material-icons send
+			
 		

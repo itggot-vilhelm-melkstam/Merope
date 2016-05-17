@@ -4,6 +4,7 @@ class Seeder
 		users
 		issues
     tags
+    comments
   end
 
 	def self.users
@@ -47,6 +48,10 @@ class Seeder
     Tag.create(name: "Inloggning")
     Tag.create(name: "Övrig hårdvara")
     Tag.create(name: "Övrig mjukvara")
+  end
+
+  def self.comments
+    Comment.create(content: "Hej!", issue_id: 1, user_id: 1)
   end
 
 end
