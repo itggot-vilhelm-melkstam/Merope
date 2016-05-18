@@ -1,6 +1,11 @@
 body {
   background-color: #FAFAFA;
 }
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
 .mdl-snackbar {
 	z-index: 5;
 }
@@ -17,6 +22,16 @@ body {
 
 .mdl-layout__drawer {
 	position: fixed;
+}
+
+.mdl-layout__drawer .drawer-user {
+  height: 128px;
+  width: 100%;
+  background-image: url("../img/user_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
@@ -106,10 +121,9 @@ a {
   background-color: #e0e0e0;
 }
 
-/* divider */
 .list-divider {
-  position: relative;
   height: 1px;
+  width: 100%;
   background-color: rgba(0,0,0,.1);
 }
 
@@ -119,5 +133,11 @@ a {
 
 .issue-date {
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0,0,0,.54);
+  letter-spacing: 0;
+}
+
+.mdl-list {
+  margin: 0;
+  padding: 0;
 }

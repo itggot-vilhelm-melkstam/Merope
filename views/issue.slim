@@ -12,8 +12,8 @@ link rel="stylesheet" href="/css/issue.css"
 				-for tag in @issue.tags
 					.chip =tag.name
 			span.issue_created =@issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
-		span =@issue.description
-		br
+		span.pre-wrap =@issue.description
+
 		.notice
 			.switch-container
 				span Email-notiser
@@ -36,7 +36,7 @@ link rel="stylesheet" href="/css/issue.css"
 	
 	.mdl-list
 		-for comment in @comments
-			li.mdl-list__item.mdl-list__item--two-line
+			li.mdl-list__item.mdl-list__item--two-line.comment class="#{comment.user == @user ? 'owner' : ''}"
 				span.mdl-list__item-primary-content
 					i.material-icons.avatar account_circle
 					span =comment.user.name
@@ -44,10 +44,11 @@ link rel="stylesheet" href="/css/issue.css"
 				span.mdl-list__item-secondary-content.issue-date
 					= comment.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 					form action="/comment/delete" method="post"
+						input type="hidden" value="#{comment.id}" name="comment_id"
 						button.mdl-button.mdl-js-button.mdl-button--icon
 							i.material-icons delete
 				
-			.list-divider.indented
+			.list-divider class="#{comment == @comments.last ? "" : "indented"}"
 		
 		#create-comment
 			form action="/comment/create" method="post"
@@ -59,4 +60,3 @@ link rel="stylesheet" href="/css/issue.css"
 				button.mdl-button.mdl-js-button.mdl-button--icon type="submit"
 					i.material-icons send
 			
-		

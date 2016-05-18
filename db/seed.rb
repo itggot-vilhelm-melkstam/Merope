@@ -1,6 +1,9 @@
 class Seeder
 
   def self.seed!
+    #Delete all files
+    Dir["./public/files/*"].each {|file| File.delete(file)}
+
 		users
 		issues
     tags
@@ -51,7 +54,7 @@ class Seeder
   end
 
   def self.comments
-    Comment.create(content: "Hej!", issue_id: 1, user_id: 1)
+    Comment.create(content: "Hej!", issue_id: 1, user_id: 2)
   end
 
 end

@@ -44,7 +44,6 @@ class App < Sinatra::Base
 	end
 
   get "/issue/:id" do |id|
-    if session[:user_id] == Issue.first(id: id).user.id
       @user = User.get(session[:user_id])
       @issue = Issue.first(id: id)
       @status = {open: "ÖPPEN", closed: "STÄNGD", unassigned: "OTILLDELAD"}[@issue.status]
@@ -118,6 +117,22 @@ class App < Sinatra::Base
 		end
   end
 
+  post "/comment/delete" do
+    flash[:notice] = []
+    @user = User.get(session[:user_id])
+    @comment = Comment.get(params["comment_id"].to_i)
+    if session[:user_id] && @user == @comment.user
+      @id = @comment.issue.id
+      @comment.destroy
+      redirect "/issue/#{@id}"
+      flash[:notice] << "Kommentar borttagen"
+    elsif session[:user_id]
+      redirect back
+    else
+      redirect "/"
+    end
+  end
+
   post "/login" do
 		user = User.first(email: params["email"])
     if user && user.password == params["password"]
@@ -128,7 +143,7 @@ class App < Sinatra::Base
   end
 
 	post "/logout" do
-		session[:user_id] = nil
+		session.destroy
 		redirect "/"
 	end
 

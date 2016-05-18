@@ -9,4 +9,5 @@ class User
 	property :rights, Enum[:admin, :teacher, :student], default: :student
 
 	has n, :issues
+	has n, :comments
 end

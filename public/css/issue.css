@@ -75,7 +75,7 @@ span.open {
 .notice {
 	position: relative;
   height: 48px;
-  margin: 8px 0;
+  margin: 16px 0 8px 0;
   display: inline-block;
   width: 100%;
 }
@@ -139,6 +139,18 @@ span.open {
 	padding: 16px;
 }
 
+.comment:hover {
+	background-color: #eee;
+}
+
+.comment form button {
+	visibility: hidden;
+}
+
+.comment.owner:hover form button {
+	visibility: visible;
+}
+
 .avatar {
 	float: left;
 	font-size: 32px;
@@ -150,6 +162,7 @@ span.open {
 }
 
 #create-comment {
+	padding-top: 8px;
 	overflow: hidden;
 }
 

@@ -25,7 +25,10 @@ html
 			
 			.mdl-layout__drawer
 				nav.mdl-navigation
-					span =@user.name
+					.drawer-user
+						span#name =@user.name
+						/ span#email =@user.email
+						
 					a.mdl-navigation__link href="/issues"
 						i.material-icons report_problem
 						| Ärenden
