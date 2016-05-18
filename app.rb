@@ -44,6 +44,7 @@ class App < Sinatra::Base
 	end
 
   get "/issue/:id" do |id|
+    if session[:user_id] && session[:user_id] == Issue.get(id).user.id
       @user = User.get(session[:user_id])
       @issue = Issue.first(id: id)
       @status = {open: "ÖPPEN", closed: "STÄNGD", unassigned: "OTILLDELAD"}[@issue.status]
