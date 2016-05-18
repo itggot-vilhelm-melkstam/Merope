@@ -31,6 +31,18 @@ class App < Sinatra::Base
 		end
 	end
 
+	get "/issue/create" do
+		@articles = []
+		24.times { @articles << LoremIpsum.random.split(/ /)[0..rand(2..5)].join(" ")}
+		@tags = Tag.all
+		if session[:user_id]
+			@user = User.get(session[:user_id])
+			slim :create_issue
+		else
+			redirect "/"
+		end
+	end
+
   get "/issue/:id" do |id|
     if session[:user_id] == Issue.first(id: id).user.id
       @user = User.get(session[:user_id])
@@ -42,18 +54,6 @@ class App < Sinatra::Base
       redirect "/"
     end
   end
-
-	get "/issue/create" do
-    @articles = []
-    24.times { @articles << LoremIpsum.random.split(/ /)[0..rand(2..5)].join(" ")}
-    @tags = Tag.all
-		if session[:user_id]
-			@user = User.get(session[:user_id])
-			slim :create_issue
-		else
-			redirect "/"
-		end
-	end
 
   post "/issue/create" do
 		flash[:notice] = []

@@ -34,17 +34,27 @@ link rel="stylesheet" href="/css/issue.css"
 		button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--raised#save-button
 			b Spara
 	
-	.mdl-card__actions.comments-section
+	.mdl-list
 		-for comment in @comments
-			.comment
-				=comment.content
+			li.mdl-list__item.mdl-list__item--two-line
+				span.mdl-list__item-primary-content
+					i.material-icons.avatar account_circle
+					span =comment.user.name
+					span.mdl-list__item-sub-title = comment.content
+				span.mdl-list__item-secondary-content.issue-date
+					= comment.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
+					form action="/comment/delete" method="post"
+						button.mdl-button.mdl-js-button.mdl-button--icon
+							i.material-icons delete
+				
+			.list-divider.indented
 		
 		#create-comment
 			form action="/comment/create" method="post"
 				input type="hidden" value="#{@issue.id}" name="issue"
 				i.material-icons.avatar account_circle
 				.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-					input.mdl-textfield__input#comment-textfield type="text" name="content"
+					textarea.mdl-textfield__input#comment-textfield type="text" name="content" rows="1"
 					label.mdl-textfield__label for="comment-textfield" Kommentera…
 				button.mdl-button.mdl-js-button.mdl-button--icon type="submit"
 					i.material-icons send

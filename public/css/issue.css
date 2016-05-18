@@ -120,21 +120,46 @@ span.open {
 }
 
 .mdl-card__actions {
+	padding: 0;
+}
+
+.mdl-list__item--two-line, .mdl-list__item--two-line .mdl-list__item-primary-content {
+	height: auto;
+}
+
+.mdl-list__item--two-line .mdl-list__item-primary-content {
+	width: calc(100% - 128px);
+}
+
+.mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
+	padding-left: 48px;
+}
+
+.comment {
 	padding: 16px;
 }
 
+.avatar {
+	float: left;
+	font-size: 32px;
+	margin-right: 16px;
+}
+
+.list-divider.indented {
+  margin-left: 64px;
+}
+
 #create-comment {
-	height: 64px;
 	overflow: hidden;
 }
 
 #create-comment .avatar {
+	float: left;
 	font-size: 32px;
 	margin: 16px;
 }
 
 #create-comment .mdl-textfield {
-	top: -8px;
 	width: calc(100% - 140px);
 }
 

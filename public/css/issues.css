@@ -73,23 +73,7 @@
 
 .mdl-list__item:hover{
   background-color: #e0e0e0;
-  cursor:
-}
-
-.issue-date {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.54);
-}
-
-/* divider */
-.list-divider {
-  position: relative;
-  height: 1px;
-  background-color: #E0E0E0;
-}
-
-.list-divider.indented {
-  margin-left: 72px;
+  cursor: pointer;
 }
 
 .no-issues {
