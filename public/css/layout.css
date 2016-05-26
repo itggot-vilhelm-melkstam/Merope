@@ -24,14 +24,27 @@ body {
 	position: fixed;
 }
 
+.mdl-layout__drawer .mdl-navigation {
+	padding-top: 0;
+}
+
 .mdl-layout__drawer .drawer-user {
   height: 128px;
   width: 100%;
-  background-image: url("../img/user_background.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 
+}
+
+.mdl-layout__drawer .drawer-user .avatar {
+	font-size: 48px;
+	padding: 8px;
+	margin-bottom: 16px;
+}
+
+.mdl-layout__drawer .drawer-user span {
+    display: block;
+    padding: 0 8px;
+    text-overflow: ellipsis;
+    line-height: 20px;
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {

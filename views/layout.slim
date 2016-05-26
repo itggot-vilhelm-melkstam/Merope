@@ -26,15 +26,23 @@ html
 			.mdl-layout__drawer
 				nav.mdl-navigation
 					.drawer-user
+						i.material-icons.avatar account_circle
 						span#name =@user.name
-						/ span#email =@user.email
+						span#email =@user.email
 						
 					a.mdl-navigation__link href="/issues"
 						i.material-icons report_problem
-						| Ärenden
+						| Mina Ärenden
 					a.mdl-navigation__link href="/knowledgebase"
 						i.material-icons lightbulb_outline
 						| Kunskapsbas
+					- if @user.rights == :admin
+						a.mdl-navigation__link href="/issues/received"
+							i.material-icons keyboard_backspace
+							| Inkommna ärenden
+						a.mdl-navigation__link href="/users"
+							i.material-icons person
+							| Användare
 					
 					.navigation-bottom
 						form action="/logout" method="post"
@@ -45,9 +53,9 @@ html
 				div.page-content
 					== yield
 			a href="/issue/create"
-				button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored
+				button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored#fab-button
 					i.material-icons add
-		
+				span for="fab-button" class="mdl-tooltip" Skapa ärenden
 					
 javascript:
 	r(function(){

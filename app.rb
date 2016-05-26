@@ -31,6 +31,16 @@ class App < Sinatra::Base
 		end
 	end
 
+	get "/issues/received" do
+		if session[:user_id] and User.get(session[:user_id]).rights == :admin
+			@user = User.get(session[:user_id])
+			@issues = Issue.all
+			slim :received_issues
+		elsif session[:user_id]
+			redirect "/"
+		end
+	end
+
 	get "/issue/create" do
 		@articles = []
 		24.times { @articles << LoremIpsum.random.split(/ /)[0..rand(2..5)].join(" ")}
