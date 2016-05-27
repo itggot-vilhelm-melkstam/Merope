@@ -15,10 +15,10 @@ link rel="stylesheet" href="/css/issues.css"
         
   .mdl-card__media
   
-    span.list-subheader Öppna
-    -unless @issues.select{|i| i.status == :open}.empty?
+    span.list-subheader Tilldelade dig
+    -unless @issues.select{|i| i.status == :open && i.admin != @user.id}.empty?
       ul.mdl-list
-      -for issue in @issues.select{|i| i.status == :open}
+      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}
         a href="/issue/#{issue.id}"
           li.mdl-list__item.mdl-list__item--three-line
             span.mdl-list__item-primary-content
@@ -30,13 +30,13 @@ link rel="stylesheet" href="/css/issues.css"
             span.mdl-list__item-secondary-info
               span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 
-        - unless issue == @issues.select{|i| i.status == :open}.last
+        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.last
           .list-divider.indented
     - else
       span.no-issues Det finns inga öppna ärenden!
 
     .list-divider
-  
+    
   
     span.list-subheader Otilldelade
     -unless @issues.select{|i| i.status == :unassigned}.empty?
@@ -58,6 +58,28 @@ link rel="stylesheet" href="/css/issues.css"
     - else
       span.no-issues Det finns inga otilldelade ärenden!
       
+    .list-divider
+    
+    span.list-subheader Tilldelade andra
+    -unless @issues.select{|i| i.status == :open && i.admin != @user.id}.empty?
+      ul.mdl-list
+      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}
+        a href="/issue/#{issue.id}"
+          li.mdl-list__item.mdl-list__item--three-line
+            span.mdl-list__item-primary-content
+              i.material-icons.mdl-list__item-avatar person
+              span.issue-title =issue.title
+              span.mdl-list__item-sub-title.issue-username =issue.user.name
+              span.mdl-list__item-sub-title.issue-description =issue.description
+              
+            span.mdl-list__item-secondary-info
+              span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
+
+        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.last
+          .list-divider.indented
+    - else
+      span.no-issues Andra admins har inga tilldelade ärenden
+
     .list-divider
     
       

@@ -11,15 +11,21 @@ class Seeder
   end
 
 	def self.users
-		User.create(name: "Vilhelm Melkstam",
-								email: "vilhelm.melkstam@gmail.com",
-								password: "Hej")
+  		User.create(name: "Vilhelm Melkstam",
+  								email: "vilhelm.melkstam@gmail.com",
+  								password: "Hej")
 
-		User.create(name: "Pelle K.Lund",
-								email: "tramstrams@gmail.com",
-								password: "majsmajs",
-								rights: :admin)
+  		User.create(name: "Pelle K.Lund",
+  								email: "tramstrams@gmail.com",
+  								password: "Hej",
+  								rights: :admin)
 
+    10.times do
+      User.create(name: Faker::Name.name,
+  								email: Faker::Internet.email,
+  								password: "Hej",
+  								rights: [:admin, :teacher, :student, :student, :student].sample)
+    end
 	end
 
 	def self.issues
@@ -27,17 +33,8 @@ class Seeder
 			Issue.create(title: LoremIpsum.random.split(/ /)[0..rand(3..6)].join(" "),
 									 description: LoremIpsum.random(paragraphs: rand(1..3)),
 									 status: [:unassigned, :open, :closed].sample,
-									 user: User.all.sample)
-
-    # Issue.create(title: "Hejsan hoppsan",
-    # 						 description: "Ja, vad ska man säga, det blir som det blir. Lorem ipsum dolmus sollicitudin luctus magna in laoreet. Sed eget venenatis nulla.",
-    #              status: :closed,
-    #              user_id: 2)
-		#
-    # Issue.create(title: "Tjohej mesjk ",
-    #              description: "Bacon ipsum dolor amet beef pastrami porchetta leberkas, tail bresaola salami turducken. Kevin pork chop corned beef ground round beef ribs boudin pork brisket biltong.",
-    #              status: :closed,
-    #              user_id: 2)
+									 user: User.all.sample,
+                   created_at: Faker::Time.backward(365, :all).to_datetime)
 		end
 	end
 

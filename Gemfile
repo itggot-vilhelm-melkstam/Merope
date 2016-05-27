@@ -13,6 +13,7 @@ gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'racksh'
 gem 'lorem_ipsum_amet'
+gem 'faker'
 gem 'rack-flash3'
 
 # Used during local development (on your own machine)

@@ -32,7 +32,7 @@ class App < Sinatra::Base
 	end
 
 	get "/issues/received" do
-		if session[:user_id] and User.get(session[:user_id]).rights == :admin
+		if session[:user_id] && (User.get(session[:user_id]).rights == :admin)
 			@user = User.get(session[:user_id])
 			@issues = Issue.all
 			slim :received_issues
@@ -54,7 +54,7 @@ class App < Sinatra::Base
 	end
 
   get "/issue/:id" do |id|
-    if session[:user_id] && session[:user_id] == Issue.get(id).user.id
+    if session[:user_id] && (session[:user_id] == Issue.get(id).user.id || User.get(session[:user_id]).rights == :admin)
       @user = User.get(session[:user_id])
       @issue = Issue.first(id: id)
       @status = {open: "ÖPPEN", closed: "STÄNGD", unassigned: "OTILLDELAD"}[@issue.status]
