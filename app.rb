@@ -1,4 +1,5 @@
 require "rack-flash"
+require "googleauth"
 
 class App < Sinatra::Base
   enable :sessions
@@ -10,7 +11,6 @@ class App < Sinatra::Base
 			@no_cahce = false
 		end
 	end
-
 
   get "/" do
 		if session[:user_id]
@@ -65,6 +65,11 @@ class App < Sinatra::Base
     end
   end
 
+	get "/oauth2callback" do
+		client_secrets = Google::APIClient::ClientSecrets.load
+  	auth_client = client_secrets.to_authorization
+	end
+
   post "/issue/create" do
 		flash[:notice] = []
     if session[:user_id]
@@ -117,11 +122,21 @@ class App < Sinatra::Base
     end
   end
 
+	post "/issue/:id/update" do |id|
+		flash[:notice] = []
+		if session[:user_id]
+			@issue = Issue.get(id)
+			@issue.update(notice: params["notice"] == "t" ? true : false, alternative_email: params["alternative_email"])
+			flash[:notice] << "Ärendet uppdaterat"
+			redirect "/issue/#{id}"
+		end
+	end
+
   post "/comment/create" do
     if session[:user_id]
 			@user = User.get(session[:user_id])
       @issue = Issue.get(params["issue"].to_i)
-      Comment.create(content: params["content"], issue_id: @issue.id, user_id: @user.id)
+      Comment.create(content: params["content"], issue: @issue, user: @user)
       redirect "/issue/#{@issue.id}"
 		else
 			redirect "/"

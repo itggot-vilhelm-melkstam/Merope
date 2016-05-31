@@ -18,7 +18,7 @@ link rel="stylesheet" href="/css/issues.css"
     span.list-subheader Tilldelade dig
     -unless @issues.select{|i| i.status == :open && i.admin != @user.id}.empty?
       ul.mdl-list
-      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}
+      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}.sort_by{|x| x.created_at}.reverse
         a href="/issue/#{issue.id}"
           li.mdl-list__item.mdl-list__item--three-line
             span.mdl-list__item-primary-content
@@ -30,7 +30,7 @@ link rel="stylesheet" href="/css/issues.css"
             span.mdl-list__item-secondary-info
               span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 
-        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.last
+        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.sort_by{|x| x.created_at}.reverse.last
           .list-divider.indented
     - else
       span.no-issues Det finns inga öppna ärenden!
@@ -41,7 +41,7 @@ link rel="stylesheet" href="/css/issues.css"
     span.list-subheader Otilldelade
     -unless @issues.select{|i| i.status == :unassigned}.empty?
       ul.mdl-list
-      -for issue in @issues.select{|i| i.status == :unassigned}
+      -for issue in @issues.select{|i| i.status == :unassigned}.sort_by{|x| x.created_at}.reverse
         a href="/issue/#{issue.id}"
           li.mdl-list__item.mdl-list__item--three-line
             span.mdl-list__item-primary-content
@@ -53,7 +53,7 @@ link rel="stylesheet" href="/css/issues.css"
             span.mdl-list__item-secondary-info
               span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
             
-        - unless issue == @issues.select{|i| i.status == :unassigned}.last
+        - unless issue == @issues.select{|i| i.status == :unassigned}.sort_by{|x| x.created_at}.reverse.last
           .list-divider.indented
     - else
       span.no-issues Det finns inga otilldelade ärenden!
@@ -63,7 +63,7 @@ link rel="stylesheet" href="/css/issues.css"
     span.list-subheader Tilldelade andra
     -unless @issues.select{|i| i.status == :open && i.admin != @user.id}.empty?
       ul.mdl-list
-      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}
+      -for issue in @issues.select{|i| i.status == :open && i.admin != @user.id}.sort_by{|x| x.created_at}.reverse
         a href="/issue/#{issue.id}"
           li.mdl-list__item.mdl-list__item--three-line
             span.mdl-list__item-primary-content
@@ -75,7 +75,7 @@ link rel="stylesheet" href="/css/issues.css"
             span.mdl-list__item-secondary-info
               span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
 
-        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.last
+        - unless issue == @issues.select{|i| i.status == :open && i.admin != @user.id}.sort_by{|x| x.created_at}.reverse.last
           .list-divider.indented
     - else
       span.no-issues Andra admins har inga tilldelade ärenden
@@ -86,19 +86,19 @@ link rel="stylesheet" href="/css/issues.css"
     span.list-subheader Stängda
     -unless @issues.select{|i| i.status == :closed}.empty?
       ul.mdl-list
-      -for issue in @issues.select{|i| i.status == :closed}
+      -for issue in @issues.select{|i| i.status == :closed}.sort_by{|x| x.created_at}.reverse
         a href="/issue/#{issue.id}"
           li.mdl-list__item.mdl-list__item--three-line
             span.mdl-list__item-primary-content
               i.material-icons.mdl-list__item-avatar person
-              span class="issue-title" =issue.title
-              span class="mdl-list__item-sub-title issue-username" =issue.user.name
-              span class="mdl-list__item-sub-title issue-description" =issue.description
+              span.issue-title =issue.title
+              span.mdl-list__item-sub-title.issue-username =issue.user.name
+              span.mdl-list__item-sub-title.issue-description =issue.description
               
             span class="mdl-list__item-secondary-info"
               span.issue-date =issue.created_at.strftime("%e" + "\s" + "%b" + "\s" + "%Y")
             
-        - unless issue == @issues.select{|i| i.status == :closed}.last
+        - unless issue == @issues.select{|i| i.status == :closed}.sort_by{|x| x.created_at}.reverse.last
           .list-divider.indented
     - else
       span.no-issues Det finns inga stängda ärenden!

@@ -54,7 +54,9 @@ class Seeder
   end
 
   def self.comments
-    Comment.create(content: "Hej!", issue_id: 1, user_id: 2)
+		20.times do
+    	Comment.create(content: Faker::Lorem.sentences(rand(1..5)).join(" "), issue: Issue.all.sample, user: User.all.sample)
+		end
   end
 
 end
